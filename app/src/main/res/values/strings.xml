@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ContactManager</string>
+    <string name="name">Name</string>
+    <string name="phone">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="add_new_contact">Add New Contact</string>
+
+
+</resources>
+
+

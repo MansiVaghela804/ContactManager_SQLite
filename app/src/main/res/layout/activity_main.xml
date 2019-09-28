@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:drawable/btn_default_small"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/serachContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Serach Contact"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/insertContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Contact"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/updateContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Contact"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/ContactBook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="All Contacts"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+</ScrollView>

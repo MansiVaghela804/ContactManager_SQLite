@@ -1,0 +1,59 @@
+package com.example.contactmanager;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DataBaseHelper extends SQLiteOpenHelper {
+    private static final String DATABASE_NAME  = "contact.db";
+    private static final String TABLE_NAME  = "contacts";
+    private static final int VERSION  = 1;
+
+    public DataBaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+//        Create Database query
+            db.execSQL(ContactsList.CREATE_TABLE);
+
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+            onCreate(db);
+
+    }
+    public Boolean insertData(String name, String mobileNumber, String email){
+
+//        Important line SqliteDatabse create
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ContactsList.COLUMN_NAME,name);
+        contentValues.put(ContactsList.COLUMN_MOBILE_NUMBER,mobileNumber);
+//        contentValues.put(ContactsList.COLUMN_EMAIL,email);
+        long result = db.insert(TABLE_NAME,null,contentValues);
+//        db.close();
+        if (result == -1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public Cursor getData(String mobileNumber) {
+        SQLiteDatabase db = this.getWritableDatabase();
+//      search query -->> select * from table_name "where mobile_number = '123456'
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE MOBILE_NUMBER = '" + mobileNumber + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+    public void deleteContact(String mobileNumber){
+        SQLiteDatabase db = this.getWritableDatabas
